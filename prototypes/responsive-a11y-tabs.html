@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessible Tab Control</title>
+  <style>
+    .tabs {
+      padding: 1em;
+    }
+
+    [role="tablist"] {
+      margin-bottom: -1px;
+      display: flex;
+      flex-direction: row;
+      gap: 0.1rem;
+    }
+
+    [role="tab"] {
+      /* position: relative; */
+      z-index: 1;
+      background: white;
+      border-radius: 5px 5px 0 0;
+      border: 1px solid grey;
+      border-bottom: 0;
+      padding: 0.2em;
+    }
+
+    [role="tab"][aria-selected="true"] {
+      z-index: 3;
+    }
+
+    [role="tabpanel"] {
+      position: relative;
+      padding: 0 0.5em 0.5em 0.7em;
+      border: 1px solid grey;
+      border-radius: 0 0 5px 5px;
+      background: white;
+      z-index: 2;
+    }
+
+    [role="tabpanel"]:focus {
+      border-color: orange;
+      outline: 1px solid orange;
+    }
+
+    @media screen and (max-width: 600px) {
+      [role="tablist"] {
+        flex-direction: column;
+        gap: 0.1rem;
+        height: 3.5rem;
+        overflow-y: scroll;
+      }
+
+      [role="tab"] {
+        height: 1.5rem;
+      }
+
+      [role="tab"][aria-selected="true"] {
+        background-color: hsl(281, 81%, 89%);
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Accessible Tab Control</h1>
+
+  <h2>Before</h2>
+
+
+  <div class="tabs">
+    <div role="tablist" aria-label="Sample Tabs">
+      <button
+        role="tab"
+        aria-selected="true"
+        aria-controls="panel-1"
+        id="tab-1"
+        tabindex="0">
+        First Tab
+      </button>
+      <button
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-2"
+        id="tab-2"
+        tabindex="-1">
+        Second Tab
+      </button>
+      <button
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-3"
+        id="tab-3"
+        tabindex="-1">
+        Third Tab
+      </button>
+      <button
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-4"
+        id="tab-4"
+        tabindex="-1">
+        Tab 4
+      </button>
+      <button
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-5"
+        id="tab-5"
+        tabindex="-1">
+        Tab 5
+      </button>
+      <button
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-6"
+        id="tab-6"
+        tabindex="-1">
+        Tab 6
+      </button>
+      <button
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-7"
+        id="tab-7"
+        tabindex="-1">
+        Tab 7
+      </button>
+      <button
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-8"
+        id="tab-8"
+        tabindex="-1">
+        Tab 8
+      </button>
+      <button
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-9"
+        id="tab-9"
+        tabindex="-1">
+        Tab 9
+      </button>
+      <button
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-10"
+        id="tab-10"
+        tabindex="-1">
+        Tab 10
+      </button>
+      <button
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-11"
+        id="tab-11"
+        tabindex="-1">
+        Tab 11
+      </button>
+      <button
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-12"
+        id="tab-12"
+        tabindex="-1">
+        Tab 12
+      </button>
+      <button
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-13"
+        id="tab-13"
+        tabindex="-1">
+        Tab 13
+      </button>
+      <button
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-14"
+        id="tab-14"
+        tabindex="-1">
+        Tab 14
+      </button>
+      <button
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-15"
+        id="tab-15"
+        tabindex="-1">
+        Tab 15
+      </button>
+    </div>
+    <div id="panel-1" role="tabpanel" tabindex="0" aria-labelledby="tab-1">
+      <p>Content for the first panel</p>
+      <button>button 1</button>
+      <button>button 2</button>
+    </div>
+    <div id="panel-2" role="tabpanel" tabindex="0" aria-labelledby="tab-2" hidden>
+      <p>Content for the second panel</p>
+      <textarea>input for the second panel</textarea>
+    </div>
+    <div id="panel-3" role="tabpanel" tabindex="0" aria-labelledby="tab-3" hidden>
+      <p>Content for the third panel</p>
+    </div>
+    <div id="panel-4" role="tabpanel" tabindex="0" aria-labelledby="tab-4" hidden>
+      <p>Content for panel 4</p>
+    </div>
+    <div id="panel-5" role="tabpanel" tabindex="0" aria-labelledby="tab-5" hidden>
+      <p>Content for panel 5</p>
+    </div>
+    <div id="panel-6" role="tabpanel" tabindex="0" aria-labelledby="tab-6" hidden>
+      <p>Content for panel 6</p>
+    </div>
+    <div id="panel-7" role="tabpanel" tabindex="0" aria-labelledby="tab-7" hidden>
+      <p>Content for panel 7</p>
+    </div>
+    <div id="panel-8" role="tabpanel" tabindex="0" aria-labelledby="tab-8" hidden>
+      <p>Content for panel 8</p>
+    </div>
+    <div id="panel-9" role="tabpanel" tabindex="0" aria-labelledby="tab-9" hidden>
+      <p>Content for panel 9</p>
+    </div>
+    <div id="panel-10" role="tabpanel" tabindex="0" aria-labelledby="tab-10" hidden>
+      <p>Content for panel 10</p>
+    </div>
+    <div id="panel-11" role="tabpanel" tabindex="0" aria-labelledby="tab-11" hidden>
+      <p>Content for panel 11</p>
+    </div>
+    <div id="panel-12" role="tabpanel" tabindex="0" aria-labelledby="tab-12" hidden>
+      <p>Content for panel 12</p>
+    </div>
+    <div id="panel-13" role="tabpanel" tabindex="0" aria-labelledby="tab-13" hidden>
+      <p>Content for panel 13</p>
+    </div>
+    <div id="panel-14" role="tabpanel" tabindex="0" aria-labelledby="tab-14" hidden>
+      <p>Content for panel 14</p>
+    </div>
+    <div id="panel-15" role="tabpanel" tabindex="0" aria-labelledby="tab-15" hidden>
+      <p>Content for panel 15</p>
+    </div>
+  </div>
+
+  <h2>After</h2>
+  <p><a href="#next">Foop</a>. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio perferendis id est repellendus at, sunt error amet quae officia magnam quibusdam totam? Possimus quidem doloribus itaque dolorum inventore. Voluptate, recusandae?</p>
+
+  <p id="next">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque sit rem soluta alias reprehenderit, ab fugit nam dolore mollitia iste esse error laborum. Pariatur reiciendis, eum cumque possimus vero atque?</p>
+
+  <ul role="tablist">
+    <li role="presentation">
+      <a role="tab" href="#section1" id="tab1" aria-selected="true">Section 1</a>
+    </li>
+    <li role="presentation">
+      <a role="tab" href="#section2" id="tab2">Section 2</a>
+    </li>
+    <li role="presentation">
+      <a role="tab" href="#section3" id="tab3">Section 3</a>
+    </li>
+  </ul>
+  <section role="tabpanel" id="section1" aria-labelledby="tab1">
+    I am section 1.
+  </section>
+  <section role="tabpanel" id="section2" aria-labelledby="tab2" hidden>
+    I am section 2.
+  </section>
+  <section role="tabpanel" id="section3" area-labelledby="tab3" hidden>
+    I am section 3.
+  </section>
+  
+  <script>
+    let tabList = null;
+    let tabs = null;
+    let tabFocus = 0;
+    window.addEventListener('DOMContentLoaded', () => {
+      // Only handle one particular tablist; if you have multiple tab
+      // lists (might even be nested), you have to apply this code for each one
+      tabList = document.querySelector('[role="tablist"]');
+      tabs = tabList.querySelectorAll(':scope > [role="tab"]');
+
+      // Add a click event handler to each tab
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', selectTabs);
+      });
+
+      tabList.addEventListener('keydown', handleKeys);
+
+      const tab1 = document.getElementById('tab1');
+      const tab2 = document.getElementById('tab2');
+      const tab3 = document.getElementById('tab3');
+      const section1 = document.getElementById('section1');
+      const section2 = document.getElementById('section2');
+      const section3 = document.getElementById('section3');
+      tab1.addEventListener('click', () => {
+        section1.hidden = false;
+        section2.hidden = true;
+        section3.hidden = true;
+      });
+      tab2.addEventListener('click', () => {
+        section1.hidden = true;
+        section2.hidden = false;
+        section3.hidden = true;
+      });
+      tab3.addEventListener('click', () => {
+        section1.hidden = true;
+        section2.hidden = true;
+        section3.hidden = false;
+      });
+    });
+
+    function handleKeys(event) {
+      // Enable arrow navigation between tabs in the tab list
+      // Move right
+      if (event.key === 'ArrowRight' || event.key === 'ArrowLeft' || event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+        event.preventDefault();
+        event.stopPropagation();   
+        tabs[tabFocus].setAttribute('tabindex', -1);
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+          tabFocus++;
+          // If we're at the end, go to the start
+          if (tabFocus >= tabs.length) {
+            tabFocus = 0;
+          }
+          // Move left
+        } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+          tabFocus--;
+          // If we're at the start, move to the end
+          if (tabFocus < 0) {
+            tabFocus = tabs.length - 1;
+          }
+        }
+        
+        const currentTab = tabs[tabFocus];
+
+        currentTab.setAttribute('tabindex', 0);
+        currentTab.focus();
+
+        changeTabs(currentTab);
+      }
+    }
+
+    function selectTabs(event) {
+      const targetTab = event.target;
+      changeTabs(targetTab);
+    }
+
+    function changeTabs(targetTab) {
+      const tabList = targetTab.parentNode;
+      const tabGroup = tabList.parentNode;
+
+      targetTab.scrollIntoView(true, { behavior: 'smooth', block: 'nearest' });
+
+
+      // Remove all current selected tabs
+      tabList
+        .querySelectorAll(':scope > [aria-selected="true"]')
+        .forEach((t) => t.setAttribute('aria-selected', false));
+
+      // Set this tab as selected
+      targetTab.setAttribute('aria-selected', true);
+
+      // Hide all tab panels
+      tabGroup
+        .querySelectorAll(':scope > [role="tabpanel"]')
+        .forEach((p) => p.setAttribute('hidden', true));
+
+      // Show the selected panel
+      tabGroup
+        .querySelector(`#${targetTab.getAttribute('aria-controls')}`)
+        .removeAttribute('hidden');
+    }
+
+  </script>
+  
+</body>
+</html>

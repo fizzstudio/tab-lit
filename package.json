@@ -1,0 +1,50 @@
+{
+  "name": "@fizz/ui-components",
+  "version": "0.69.4",
+  "description": "Components for building UIs",
+  "author": "Josh Fennell",
+  "license": "UNLICENSED",
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.fizz.studio"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fizzstudio/ui-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fizzstudio/ui-components/issues"
+  },
+  "homepage": "https://github.com/fizzstudio/ui-components#readme",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5171",
+    "build": "tsc && vite build && api-extractor run --local --verbose",
+    "test": "ava",
+    "pretest": "npm run build",
+    "doc": "api-documenter markdown --input-folder ./temp --output-folder ./docs",
+    "pubpatch": "npm version patch && npm publish",
+    "pubminor": "npm version minor && npm publish",
+    "pubmajor": "npm version major && npm publish"
+  },
+  "files": [
+    "dist",
+    "types"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/ui-components.js",
+      "types": "./types/lib/index.d.ts"
+    }
+  },
+  "types": "./types/lib/index.d.ts",
+  "devDependencies": {
+    "@microsoft/api-documenter": "^7.26.1",
+    "@microsoft/api-extractor": "^7.48.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.3"
+  },
+  "dependencies": {
+    "lit": "^3.2.1"
+  }
+}
