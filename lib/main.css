@@ -1,61 +1,78 @@
+/* GLOBAL VARIABLES: theme tokens used by fizz components */
+:root {
+  --fizzThemeColor: navy;
+  --fizzThemeContrastColor: white;
+  --fizzThemeExtraColor: navy;
+  --fizzThemeColorLight: hsl(219, 79%, 86%);
+  --fizzThemeTextColor: black;
+  --fizzThemeUnselectedTextColor: white;
+  --fizzThemeSelectedTextDecoration: underline;
+}
 
-.hidden { display: none; }
+/* Utility */
+.hidden {
+  display: none !important;
+}
 
+/* TAB VIEW STYLING (used by legacy or custom tab implementations) */
 .ui-tabview {
-    color: black;
+  color: black;
 }
 
 .ui-tabview-titlebar {
-    display: flex;
-    border: solid black 1px;
-    padding: 0.5rem;
-    gap: 0.5rem;
+  display: flex;
+  border: solid black 1px;
+  padding: 0.5rem;
+  gap: 0.5rem;
 }
 
 .ui-tabview-title {
-    border: solid black 1px;
-    padding: 0.5rem;
-    cursor: default;
+  border: solid black 1px;
+  padding: 0.5rem;
+  cursor: default;
 }
 
 .ui-tabview-title.selected {
-    border-bottom: solid black 4px;
+  border-bottom: solid black 4px;
 }
 
+/* OVERLAY & DIALOGS */
 .ui-overlay {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.0);
-    padding: 0;
-    border: solid 1px black;
-    border-radius: var(--border-radius, 0.15rem);
-    box-shadow: 0 0 40px rgb(127, 127, 127);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.0);
+  padding: 0;
+  border: solid 1px black;
+  border-radius: var(--border-radius, 0.15rem);
+  box-shadow: 0 0 40px rgb(127, 127, 127);
 }
 
 .ui-overlay-slot {
-    background: lightsteelblue;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0.5rem;
+  background: lightsteelblue;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
 }
 
 .ui-dlg-title {
-    background: darkblue;
-    color: white;
-    align-self: stretch;
-    text-align: center;
-    padding: 0.25rem;
-    margin-bottom: 0.5rem;
-    border-radius: 1rem 1rem 0.5rem 0.5rem;
+  background: darkblue;
+  color: white;
+  align-self: stretch;
+  text-align: center;
+  padding: 0.25rem;
+  margin-bottom: 0.5rem;
+  border-radius: 1rem 1rem 0.5rem 0.5rem;
 }
+
 .ui-dlg-message {
-    padding: 0.5rem;
+  padding: 0.5rem;
 }
+
 .ui-dlg-buttons {
-    padding: 0.5rem;
-    display: flex;
-    gap: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
 }
